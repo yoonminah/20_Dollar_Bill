@@ -1,0 +1,6 @@
+spring:
+  profiles: local
+  thymeleaf:
+    cache: false
+    mode: LEFAYHTML5
+
