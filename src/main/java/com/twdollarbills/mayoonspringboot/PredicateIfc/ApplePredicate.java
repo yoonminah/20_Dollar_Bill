@@ -4,5 +4,7 @@ import com.twdollarbills.mayoonspringboot.vo.Apple;
 
 public interface ApplePredicate {
     boolean test(Apple apple);
-    String printOut(Apple apple);
+    default String printOut(Apple apple){
+        return "test";
+    }
 }

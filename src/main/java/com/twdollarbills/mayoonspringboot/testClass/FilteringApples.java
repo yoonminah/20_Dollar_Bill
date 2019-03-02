@@ -2,6 +2,8 @@ package com.twdollarbills.mayoonspringboot.testClass;
 
 import com.twdollarbills.mayoonspringboot.PredicateIfc.ApplePredicate;
 import com.twdollarbills.mayoonspringboot.PredicateIfc.Predicate;
+import com.twdollarbills.mayoonspringboot.PredicateIfc.impl.AppleGreenColorPredicate;
+import com.twdollarbills.mayoonspringboot.PredicateIfc.impl.AppleHeavyWeightPredicate;
 import com.twdollarbills.mayoonspringboot.vo.Apple;
 
 import java.util.ArrayList;
@@ -16,13 +18,19 @@ public class FilteringApples {
         List<Apple> inventory = Arrays.asList(new Apple(60,"green")
                                             , new Apple(155,"green")
                                             , new Apple(120, "red"));
-/*
+
         List<Apple> heavyApples = filterApples(inventory, new AppleHeavyWeightPredicate());
         List<Apple> greenApples = filterApples(inventory, new AppleGreenColorPredicate());
         List<Apple> redApples = filterApples(inventory, (Apple apple) -> "red".equals(apple.getColor()));
-        */
-        List<Apple> redApples = filter(inventory, (Apple apple) -> "red".equals(apple.getColor()));
-        for(Apple a: redApples) System.out.println(a.getColor()+", "+a.getWeight());
+        List<Apple> testApple = filterApples(inventory, new ApplePredicate() {
+            @Override
+            public boolean test(Apple apple) {
+                return false;
+            }
+        });
+
+        List<Apple> redApplesF = filter(inventory, (Apple apple) -> "red".equals(apple.getColor()));
+        for(Apple a: redApplesF) System.out.println(a.getColor()+", "+a.getWeight());
 
         List<Integer> numbers = Arrays.asList(new Integer(60)
                                             , new Integer(155)
