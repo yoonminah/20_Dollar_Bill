@@ -34,6 +34,7 @@ public class Ex2 {
         * */
         Thread tt =  new Thread(()->{ apples.sort((Apple a1, Apple a2)-> a1.getWeight().compareTo(a2.getWeight()));
                                         for(Apple a :apples) System.out.println("A "+a.getColor()+" apple is "+ a.getWeight()+"g in tt" );
+            System.out.println("TT");
         });
 
         t.run();
